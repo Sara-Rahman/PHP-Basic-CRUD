@@ -1,0 +1,25 @@
+body{
+    font-size: 19px;
+}
+table{
+    width: 50%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    text-align: left;
+    border-radius: 1px solid #161515;
+
+}
+tr{
+    border-radius: 5px solid #1f1d1d;
+}
+th,td{
+    border: 1px solid #8ab3ff;
+    height: 30px;
+    padding: 5px;
+}
+tr:hover{
+    background: #99c2e9;
+}
+td, a{
+    text-decoration: none;
+}
