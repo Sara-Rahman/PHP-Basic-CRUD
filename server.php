@@ -1,4 +1,5 @@
 <?php
+session_start();
 //initialize varianles
 $name="";
 $email="";
@@ -15,9 +16,12 @@ if (isset($_POST['save']))
     $phone=$_POST['phone'];
     $address=$_POST['address'];
     
-  $query="INSERT INTO users (id,name,email,phone,address) VALUES ('$name','$email','$phone','$address')";
+  $query="INSERT INTO users (name,email,phone,address) VALUES ('$name','$email','$phone','$address')";
     mysqli_query($db,$query);
+    $_SESSION['msg']="Data added successfully";
     //redirect to index page after insertion
     header('Location: ' . $_SERVER['HTTP_REFERER']); 
 }
+//retrieve data from db
+$results=mysqli_query($db,"SELECT * FROM users");
 ?>

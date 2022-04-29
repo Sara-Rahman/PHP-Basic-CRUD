@@ -9,7 +9,17 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>PHP CRUD Operation</h1>
+    <h1>PHP CRUD Operation</h1><br>
+    <?php if(isset($_SESSION['msg'])): ?>
+        <div class="msg">
+            <?php 
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+            ?>
+        </div>
+        <?php endif ?>
+
+
     <table>
         <thead>
             <tr>
@@ -21,18 +31,24 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Sara</td>
-                <td>sara@mail.com</td>
-                <td>0145678976</td>
-                <td>Mirpur</td>
-                <td>
-                    <a href="#">Edit</a>
-                </td>
-                <td>
-                    <a href="#">Delete</a>
-                </td>
-            </tr>
+            <?php while($row=mysqli_fetch_array($results)){ ?>
+                 <tr>
+                 <td><?php echo $row['name']; ?></td>
+                 <td><?php echo $row['email'];?></td>
+                 <td><?php echo $row['phone'];?></td>
+                 <td><?php echo $row['address'];?></td>
+                 <td>
+                     <a href="#">Edit</a>
+                 </td>
+                 <td>
+                     <a href="#">Delete</a>
+                 </td>
+             </tr>
+          <?php 
+         }
+        ?>
+
+           
 
         </tbody>
     </table>
